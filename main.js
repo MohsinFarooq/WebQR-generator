@@ -19,6 +19,11 @@ const onGenerate = (e) => {
 
       hideSpinner();
       generateQR(url, size);
+         setTimeout(() => {
+        const saveUrl = qr.querySelector('img').src;
+        createSaveBtn(saveUrl);
+        
+      }, 50);
       
     }, 2000);
 
@@ -43,8 +48,25 @@ const hideSpinner = () => {
 
 const clearUserInterFace = ()=> {
   qr.innerHTML = '';
+     const saveBtn = document.getElementById('save-link');
+  if(saveBtn) {
+    saveBtn.remove();
+  }
 }
 
+
+const createSaveBtn = (saveUrl) => {
+  const link = document.createElement('a');
+  link.id='save-link';
+  link.classList = 'btn btn-outline-success w-30 fw-bolder py-3 m-auto my-5';
+  link.href = saveUrl;
+  link.download = 'QRcode';
+  link.innerHTML = 'Save Image';
+  document.getElementById('generated').appendChild(link);
+
+
+
+};
 
 hideSpinner();
 
