@@ -65,7 +65,10 @@ const createSaveBtn = (saveUrl) => {
   link.download = 'QRcode';
   link.innerHTML = 'Save Image';
   document.getElementById('generated').appendChild(link);
-  document.getElementById('save-link').addEventListener('click', convertblob(base64Url))
+  document.getElementById('save-link').addEventListener('click', convertblob(base64Url));
+  link.addEventListener('click',() => {
+    window.open(base64Url, '_blank');
+  });
   async function convertblob(base64Url) {
     const img = await fetch(base64Url);
       const imgblob = await img.blob();
