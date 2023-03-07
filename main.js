@@ -61,24 +61,11 @@ const createSaveBtn = (saveUrl) => {
   const link = document.createElement('a');
   link.id='save-link';
   link.classList = 'btn btn-outline-success w-30 fw-bolder py-3 m-auto my-5';
-  // link.href = saveUrl;
+  link.target = '_blank';
   link.download = 'QRcode';
+  link.href = base64Url;
   link.innerHTML = 'Save Image';
   document.getElementById('generated').appendChild(link);
-  document.getElementById('save-link').addEventListener('click', convertblob(base64Url));
-  link.addEventListener('click',() => {
-    window.open(base64Url, '_blank');
-  });
-  async function convertblob(base64Url) {
-    const img = await fetch(base64Url);
-      const imgblob = await img.blob();
-      var blobUrl = URL.createObjectURL(imgblob);
-      link.href = blobUrl;
-      // link.click();
-  }
-
-
-
 };
 
 
