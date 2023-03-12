@@ -4,3 +4,6 @@
 ### Github Page Link :
 [Web QR Generator](https://mohsinfarooq.github.io/WebQR-generator/)
 
+## Netlify :
+[Web QR Generator](https://webqrgenerator.netlify.app/)
+
